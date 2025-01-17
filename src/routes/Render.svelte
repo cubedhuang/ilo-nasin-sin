@@ -6,15 +6,17 @@
 
 {#if 'index' in tree}
 	<p
-		class="relative top-3 -mt-3 rounded-md border border-green-300 bg-green-50 px-1 py-0.5 text-sm"
+		class="relative top-3 -mt-3 rounded-md border-2 border-green-300 bg-green-50 px-1 py-0.5 text-sm"
 	>
 		{tree.text}
 	</p>
 {:else if tree.label === '' && 'word' in tree}
 	<svelte:self tree={tree.word} />
+{:else if tree.type === 'branchRightOptional' && !tree.right}
+	<svelte:self tree={tree.left} />
 {:else}
 	<div
-		class="relative top-3 -mt-3 w-fit rounded-md border p-1
+		class="relative top-3 -mt-3 w-fit rounded-md border-2 p-1
 		{tree.type === 'leaf' ? 'border-blue-300 bg-blue-50' : 'bg-white'}"
 	>
 		<p class="text-xs {tree.type === 'leaf' ? 'text-blue-800' : 'text-gray-500'}">
@@ -30,6 +32,11 @@
 			{:else if tree.type === 'branch'}
 				<svelte:self tree={tree.left} />
 				<svelte:self tree={tree.right} />
+			{:else if tree.type === 'branchRightOptional'}
+				<svelte:self tree={tree.left} />
+				{#if tree.right}
+					<svelte:self tree={tree.right} />
+				{/if}
 			{:else if tree.type === 'conjunct'}
 				<svelte:self tree={tree.left} />
 				<svelte:self tree={tree.conjunct} />

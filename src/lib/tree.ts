@@ -1,6 +1,67 @@
 import type { Token } from './lex';
 
-type Label = string;
+export const labels = [
+	'main',
+	'vocative',
+	'clause',
+	'context_phrase',
+	'context_clause',
+	'clause_marked_subject',
+	'clause_unmarked_subject',
+	'clause_optative',
+	'clause_imperative',
+	'subject',
+	'& subjects',
+	'predicate',
+	'& predicates',
+	'preverb_phrase',
+	'verb_phrase_transitive',
+	'verb_phrase_intransitive',
+	'verb_phrase_prepositional',
+	'object_phrase',
+	'e',
+	'& objects',
+	'preposition_phrase',
+	'preposition',
+	'& prepositions',
+	'option',
+	'& disjuncts',
+	'phrase',
+	'pi',
+	'ordinal',
+	'number',
+	'head',
+	// WORD TYPES
+	'#',
+	'emph',
+	'obj',
+	'regroup',
+	'ord',
+	'ctx',
+	'conj',
+	'neg',
+	'or',
+	'ind',
+	'deo',
+	'voc',
+	'pv',
+	'prep',
+	''
+] as const;
+
+const labelSet = new Set(labels);
+function isLabel(x: string): x is Label {
+	return labelSet.has(x as Label);
+}
+
+function validateLabel(x: string): Label {
+	if (!isLabel(x)) {
+		throw new Error(`Invalid label: ${x}`);
+	}
+	return x;
+}
+
+type Label = (typeof labels)[number];
 
 export interface Word {
 	index: number | undefined;
@@ -39,6 +100,12 @@ export interface Branch<T> extends TreeBase {
 	right: T;
 }
 
+export interface BranchRightOptional<T> extends TreeBase {
+	type: 'branchRightOptional';
+	left: T;
+	right?: T;
+}
+
 export interface Labelled<T> extends TreeBase {
 	type: 'labelled';
 	tree: T;
@@ -56,7 +123,13 @@ export interface Rose<T> extends TreeBase {
 	children: T[];
 }
 
-export type Tree = Leaf | Branch<Tree> | Labelled<Tree> | Conjunct<Tree> | Rose<Tree>;
+export type Tree =
+	| Leaf
+	| Branch<Tree>
+	| BranchRightOptional<Tree>
+	| Labelled<Tree>
+	| Conjunct<Tree>
+	| Rose<Tree>;
 
 export function catSource(...args: (Tree | string | undefined | null)[]) {
 	return args
@@ -73,6 +146,7 @@ export function makeWord([token]: [Token]): Word {
 }
 
 export function makeLeaf(label: Label = ''): (tokens: [Token, Tree]) => Leaf {
+	validateLabel(label);
 	return ([token, aux]: [Token, Tree | undefined]) => ({
 		type: 'leaf',
 		word: makeWord([token]),
@@ -82,16 +156,19 @@ export function makeLeaf(label: Label = ''): (tokens: [Token, Tree]) => Leaf {
 	});
 }
 
-export function makeLabelled(label: Label): (tree: [Tree]) => Labelled<Tree> {
-	return ([tree]: [Tree]) => ({
+export function makeLabelled(label: Label): (tree: [Tree, Tree | undefined]) => Labelled<Tree> {
+	validateLabel(label);
+	return ([tree, aux]: [Tree, Tree | undefined]) => ({
 		type: 'labelled',
-		label,
 		tree,
+		aux,
+		label,
 		source: tree.source
 	});
 }
 
 export function makeBranch(label: Label): (trees: [Tree, Tree]) => Branch<Tree> {
+	validateLabel(label);
 	return ([left, right]: [Tree, Tree]) => {
 		return {
 			type: 'branch',
@@ -103,7 +180,23 @@ export function makeBranch(label: Label): (trees: [Tree, Tree]) => Branch<Tree> 
 	};
 }
 
+export function makeBranchRightOptional(
+	label: Label
+): (trees: [Tree, Tree | undefined]) => BranchRightOptional<Tree> {
+	validateLabel(label);
+	return ([left, right]: [Tree, Tree | undefined]) => {
+		return {
+			type: 'branchRightOptional',
+			left,
+			right,
+			label,
+			source: catSource(left, right)
+		};
+	};
+}
+
 export function makeRose(label: Label): (children: [Tree[]]) => Rose<Tree> {
+	validateLabel(label);
 	return ([children]: [Tree[]]) => {
 		return {
 			type: 'rose',
@@ -115,6 +208,7 @@ export function makeRose(label: Label): (children: [Tree[]]) => Rose<Tree> {
 }
 
 export function makeRoseOptional(label: Label): (children: [Tree[]]) => Tree {
+	validateLabel(label);
 	return ([children]: [Tree[]]) => {
 		if (children.length === 1) {
 			return children[0];
@@ -129,6 +223,7 @@ export function makeRoseOptional(label: Label): (children: [Tree[]]) => Tree {
 }
 
 export function makeRoseFromBranch(label: Label): (trees: [Tree, Tree]) => Rose<Tree> {
+	validateLabel(label);
 	return ([left, right]: [Tree, Tree]) => {
 		if (right.type === 'rose') {
 			return {
@@ -149,6 +244,7 @@ export function makeRoseFromBranch(label: Label): (trees: [Tree, Tree]) => Rose<
 }
 
 export function makeConjunct(label: Label): (trees: [Tree, Tree, Tree]) => Conjunct<Tree> {
+	validateLabel(label);
 	return ([left, conjunct, right]: [Tree, Tree, Tree]) => {
 		return {
 			type: 'conjunct',
