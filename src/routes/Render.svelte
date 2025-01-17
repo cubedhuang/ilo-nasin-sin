@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Tree, Word } from '$lib/tree';
+	import type { Tree, Word } from '$lib/types';
 
 	export let tree: Tree | Word;
 </script>
@@ -12,8 +12,6 @@
 	</p>
 {:else if tree.label === '' && 'word' in tree}
 	<svelte:self tree={tree.word} />
-{:else if tree.type === 'branchRightOptional' && !tree.right}
-	<svelte:self tree={tree.left} />
 {:else}
 	<div
 		class="relative top-3 -mt-3 w-fit rounded-md border-2 p-1
@@ -31,15 +29,6 @@
 				{/if}
 			{:else if tree.type === 'branch'}
 				<svelte:self tree={tree.left} />
-				<svelte:self tree={tree.right} />
-			{:else if tree.type === 'branchRightOptional'}
-				<svelte:self tree={tree.left} />
-				{#if tree.right}
-					<svelte:self tree={tree.right} />
-				{/if}
-			{:else if tree.type === 'conjunct'}
-				<svelte:self tree={tree.left} />
-				<svelte:self tree={tree.conjunct} />
 				<svelte:self tree={tree.right} />
 			{:else if tree.type === 'rose'}
 				{#each tree.children as child}

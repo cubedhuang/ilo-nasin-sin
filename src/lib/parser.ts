@@ -1,7 +1,7 @@
 import nearley from 'nearley';
 
 import grammar from './grammar';
-import type { Tree } from './tree';
+import type { Tree } from './types';
 
 export function parse(text: string) {
 	const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar)).feed(text);

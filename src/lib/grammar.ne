@@ -4,7 +4,6 @@
 import {
 	makeLeaf,
 	makeBranch,
-	makeBranchRightOptional,
 	makeLabelled,
 	makeRose,
 	makeRoseOptional,
@@ -74,7 +73,8 @@ Predicate<none> -> PreverbPhrase {% makeLabelled("predicate") %}
 PreverbPhrase -> Preverb PreverbPhrase {% makeBranch("preverb_phrase") %}
 PreverbPhrase -> VerbPhrase {% id %}
 
-Preverb -> WordPreverb WordNegator:? {% makeBranchRightOptional("pv") %}
+Preverb -> WordPreverb {% id %}
+Preverb -> WordPreverb WordNegator {% makeBranch("pv") %}
 
 # T {tr/intr/prep} is the type of predicate
 VerbPhrase -> VerbPhraseTransitive {% id %}
@@ -95,7 +95,8 @@ Object -> WordObjectMarker DisjunctPhrase {% makeBranch("e") %}
 Prepositions -> PrepositionPhrase:+ {% makeRoseOptional("& prepositions") %}
 PrepositionPhrase -> Preposition DisjunctPhrase {% makeBranch("preposition_phrase") %}
 
-Preposition -> WordPreposition WordNegator:? {% makeBranchRightOptional("preposition") %}
+Preposition -> WordPreposition {% id %}
+Preposition -> WordPreposition WordNegator {% makeBranch("prep") %}
 
 ### Phrases
 

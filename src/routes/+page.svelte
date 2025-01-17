@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Render from './Render.svelte';
 	import { parse } from '$lib/parser';
-	import type { Tree } from '$lib/tree';
+	import type { Tree } from '$lib/types';
 
 	let text = $state('mi en sina li moku.');
 	let results: Tree[] = $state([]);
