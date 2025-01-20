@@ -17,7 +17,6 @@ import {
 	makeRose,
 	makeRoseOptional,
 	makeRoseFromBranch,
-	makeConjunct,
 } from "./tree";
 
 import { TokiPonaLexer } from "./lex";
