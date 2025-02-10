@@ -17,7 +17,9 @@
 		class="relative top-3 -mt-3 w-fit rounded-md border-2 p-1
 		{tree.type === 'leaf' ? 'border-blue-300 bg-blue-50' : 'bg-white'}"
 	>
-		<p class="text-xs {tree.type === 'leaf' ? 'text-blue-800' : 'text-gray-500'}">
+		<p
+			class="text-xs {tree.type === 'leaf' ? 'text-blue-800' : 'text-gray-500'}"
+		>
 			{tree.label}
 		</p>
 

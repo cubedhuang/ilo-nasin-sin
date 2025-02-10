@@ -1,10 +1,9 @@
 <script lang="ts">
 	import Render from './Render.svelte';
-	import { parse } from '$lib/parser';
-	import type { Tree } from '$lib/types';
+	import { parse, type Result } from '$lib/parser';
 
-	let text = $state('mi en sina li moku.');
-	let results: Tree[] = $state([]);
+	let text = $state('sina ken ala toki pona e ijo la, sina sona ala e ijo.');
+	let results: Result[] = $state([]);
 	let error: Error | null = $state(null);
 
 	let limited = $state(true);
@@ -54,21 +53,20 @@
 			{#if results.length > 1}
 				<h2 class="text-xl font-bold">
 					Parse {i + 1}
-					<!-- <span class="text-sm font-normal text-gray-500">
+					<span class="text-sm font-normal text-gray-500">
 						({(result.score * 100).toFixed(2)}%)
-					</span> -->
+					</span>
 				</h2>
 			{/if}
-			<Render tree={result} />
+			<Render tree={result.tree} />
 		</div>
 	{/each}
 
 	{#if results.length > 5}
 		<button
-			class="hv:border-blue-500 mt-4 border-b-2 border-transparent font-semibold text-blue-500 transition"
+			class="mt-4 border-b-2 border-transparent font-semibold text-blue-500 transition hv:border-blue-500"
 			onclick={() => (limited = !limited)}
 		>
-			<!-- {limited ? 'Show all' : 'Show less'} -->
 			{#if limited}
 				Show {results.length - 5} more
 			{:else}

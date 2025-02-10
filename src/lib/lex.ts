@@ -20,7 +20,15 @@ export type Token = {
 
 export const particles = ['li', 'e', 'pi', 'la', 'en', 'o', 'anu', 'a'];
 export const prepositions = ['tan', 'lon', 'sama', 'tawa', 'kepeken'];
-export const preverbs = ['awen', 'kama', 'wile', 'ken', 'sona', 'lukin', 'alasa'];
+export const preverbs = [
+	'awen',
+	'kama',
+	'wile',
+	'ken',
+	'sona',
+	'lukin',
+	'alasa'
+];
 export const numbers = ['wan', 'tu', 'luka', 'mute', 'ale', 'ali'];
 export const unmarkedSubjects = ['mi', 'sina'];
 

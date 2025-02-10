@@ -139,8 +139,12 @@ function main(): void {
 
 	const inputPath = args[0];
 	const outputPath = args[1];
-	const flags = new Set([...(process.env.KUNA_FLAGS ?? '').split(/\s+/)].filter((x) => x));
-	console.log(`🍳 Preprocessing ${inputPath} into ${outputPath} with flags:`, [...flags]);
+	const flags = new Set(
+		[...(process.env.KUNA_FLAGS ?? '').split(/\s+/)].filter((x) => x)
+	);
+	console.log(`🍳 Preprocessing ${inputPath} into ${outputPath} with flags:`, [
+		...flags
+	]);
 
 	const contents: string = fs.readFileSync(inputPath, 'utf-8');
 	const converted = preprocess(contents.trim().split('\n'), flags);

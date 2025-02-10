@@ -39,7 +39,9 @@ export function makeLeaf(label: Label = ''): (tokens: [Token, Tree]) => Leaf {
 	});
 }
 
-export function makeLabelled(label: Label): (tree: [Tree, Tree | undefined]) => Labelled {
+export function makeLabelled(
+	label: Label
+): (tree: [Tree, Tree | undefined]) => Labelled {
 	validateLabel(label);
 	return ([tree, aux]: [Tree, Tree | undefined]) => ({
 		type: 'labelled',
@@ -90,7 +92,9 @@ export function makeRoseOptional(label: Label): (children: [Tree[]]) => Tree {
 	};
 }
 
-export function makeRoseFromBranch(label: Label): (trees: [Tree, Tree]) => Rose {
+export function makeRoseFromBranch(
+	label: Label
+): (trees: [Tree, Tree]) => Rose {
 	validateLabel(label);
 	return ([left, right]: [Tree, Tree]) => {
 		if (right.type === 'rose') {
