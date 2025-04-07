@@ -36,7 +36,7 @@ Context -> Clause<strict> WordContextMarker {% makeBranch("context_clause") %}
 # S {any/strict} is whether or not a predicate is required
 Clause<any> -> GeneralSubject {% id %}
 Clause<P> -> MarkedSubject Predicates<li> {% makeBranch("clause_marked_subject") %}
-Clause<P> -> UnmarkedSubject Predicates<none> {% makeBranch("clause_unmarked_subject") %}
+Clause<P> -> (UnmarkedSubject {% makeLabelled("subject") %}) Predicates<none> {% makeBranch("clause_unmarked_subject") %}
 Clause<P> -> GeneralSubject Predicates<o> {% makeBranch("clause_optative") %}
 Clause<P> -> Predicates<o> {% makeLabelled("clause_imperative") %}
 
@@ -56,7 +56,7 @@ EnSubject -> SubjectMarker Phrase {% makeBranch("subject") %}
 SubjectMarker -> WordSubjectMarker {% id %}
 SubjectMarker -> WordDisjunctMarker {% id %}
 
-UnmarkedSubject -> WordUnmarkedSubject {% makeLabelled("subject") %}
+UnmarkedSubject -> WordUnmarkedSubject {% makeLabelled("head") %}
 
 # M {none/li/o/marked} is what the predicate can be marked with
 Predicates<M> -> Predicate<M> {% id %}
@@ -146,13 +146,13 @@ WordVocativeMarker -> "o" {% makeLeaf("voc") %}
 WordHead -> WordMarkedSubjectHead {% id %}
 WordHead -> WordUnmarkedSubject {% id %}
 
-WordMarkedSubjectHead -> %word_content {% makeLeaf() %}
-WordMarkedSubjectHead -> %word_preposition {% makeLeaf() %}
-WordMarkedSubjectHead -> %word_preverb {% makeLeaf() %}
-WordMarkedSubjectHead -> %word_number {% makeLeaf() %}
-WordUnmarkedSubject -> %word_unmarked_subject {% makeLeaf() %}
+WordMarkedSubjectHead -> %word_content {% makeLeaf("cont") %}
+WordMarkedSubjectHead -> %word_preposition {% makeLeaf("cont") %}
+WordMarkedSubjectHead -> %word_preverb {% makeLeaf("cont") %}
+WordMarkedSubjectHead -> %word_number {% makeLeaf("cont") %}
+WordUnmarkedSubject -> %word_unmarked_subject {% makeLeaf("cont") %}
 
-WordModifier -> %word_modifier_only {% makeLeaf() %}
+WordModifier -> %word_modifier_only {% makeLeaf("cont") %}
 WordModifier -> WordEmphasis {% id %}
 WordModifier -> WordHead {% id %}
 

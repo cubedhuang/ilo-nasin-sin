@@ -28,7 +28,7 @@ export function makeWord([token]: [Token]): Word {
 	};
 }
 
-export function makeLeaf(label: Label = ''): (tokens: [Token, Tree]) => Leaf {
+export function makeLeaf(label: Label): (tokens: [Token, Tree]) => Leaf {
 	validateLabel(label);
 	return ([token, aux]: [Token, Tree | undefined]) => ({
 		type: 'leaf',
