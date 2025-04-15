@@ -66,7 +66,7 @@ export class TokiPonaLexer implements Lexer {
 			type = 'word_preverb';
 		} else if (numbers.includes(value)) {
 			type = 'word_number';
-		} else if (value === 'kin' || value[0] === value[0].toUpperCase()) {
+		} else if (value[0] === value[0].toUpperCase()) {
 			type = 'word_modifier_only';
 		} else if (unmarkedSubjects.includes(value)) {
 			type = 'word_unmarked_subject';
