@@ -9,7 +9,7 @@
 
 	function process(text: string) {
 		const sentences = text
-			.split(/\.|·|:|\?|!/g)
+			.split(/\.|·|:|\?|!|\n/g)
 			.map((sentence) => sentence.trim())
 			.filter((sentence) => sentence.length);
 		const parses: Tree[] = [];
