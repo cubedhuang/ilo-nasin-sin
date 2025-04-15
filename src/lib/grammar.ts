@@ -60,7 +60,6 @@ const grammar: Grammar = {
     {"name": "Sentence", "symbols": ["Clause_any"], "postprocess": id},
     {"name": "Sentence", "symbols": ["Context", "Sentence"], "postprocess": makeBranch("clause")},
     {"name": "Sentence", "symbols": ["WordEmphasis", "Sentence"], "postprocess": makeBranch("clause")},
-    {"name": "Sentence", "symbols": ["Sentence", "WordEmphasis"], "postprocess": makeBranch("clause")},
     {"name": "Context", "symbols": ["GeneralSubject", "WordContextMarker"], "postprocess": makeBranch("context_phrase")},
     {"name": "Context", "symbols": ["Clause_strict", "WordContextMarker"], "postprocess": makeBranch("context_clause")},
     {"name": "Clause_any", "symbols": ["GeneralSubject"], "postprocess": id},
