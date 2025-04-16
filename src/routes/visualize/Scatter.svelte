@@ -28,12 +28,15 @@
 		{ label: 'tverb', value: 'tv' },
 		{ label: 'modifier', value: 'm' },
 		{ label: 'verb', value: 'v' }
-	];
+	] as const;
+	type Axis = (typeof axisOptions)[number]['value'];
 	const axes = $state({
 		x: 'n',
 		y: 'v'
 	});
-	let denominator = $state<'c' | 'v'>('c');
+	const denominators = ['c', 'v', 'c-mod'] as const;
+	type Denominator = (typeof denominators)[number];
+	let denominator = $state<Denominator>('c');
 
 	$effect(() => {});
 
@@ -69,6 +72,8 @@
 							let denom = contentCount;
 							if (denominator === 'v') {
 								denom = word.counts.tverb + word.counts.iverb;
+							} else if (denominator === 'c-mod') {
+								denom = contentCount - word.counts.modifier;
 							}
 							const value = {
 								label: word.word,
@@ -99,15 +104,31 @@
 					tooltip: {
 						callbacks: {
 							label(item) {
-								const { n, iv, tv, m } = item.raw as Record<
+								const values = item.raw as Record<
 									string,
 									number
 								>;
-								return `${(item.raw as Record<string, string>).label}: ${percent(
-									n
-								)} noun, ${percent(iv)} iv, ${percent(
-									tv
-								)} tv, ${percent(m)} mod`;
+
+								const DISPLAYED: Record<Denominator, Axis[]> = {
+									c: ['n', 'iv', 'tv', 'm'],
+									v: ['iv', 'tv'],
+									'c-mod': ['n', 'iv', 'tv']
+								};
+
+								const label = (
+									item.raw as Record<string, string>
+								).label;
+
+								const displayed = DISPLAYED[denominator]
+									.map((axis) => {
+										const value = values[axis];
+										if (value === undefined) return '';
+										return percent(value) + ' ' + axis;
+									})
+									.filter((v) => v !== '')
+									.join(', ');
+
+								return `${label}: ${displayed}`;
 							}
 						}
 					}
@@ -161,22 +182,16 @@
 {/each}
 
 <p class="mt-2 flex gap-1">
-	<Toggle
-		active={denominator === 'c'}
-		onclick={() => {
-			denominator = 'c';
-		}}
-	>
-		c
-	</Toggle>
-	<Toggle
-		active={denominator === 'v'}
-		onclick={() => {
-			denominator = 'v';
-		}}
-	>
-		v
-	</Toggle>
+	{#each denominators as d}
+		<Toggle
+			active={denominator === d}
+			onclick={() => {
+				denominator = d;
+			}}
+		>
+			{d}
+		</Toggle>
+	{/each}
 </p>
 
 <div class="w-full max-w-3xl">
