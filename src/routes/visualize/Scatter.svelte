@@ -38,8 +38,6 @@
 	type Denominator = (typeof denominators)[number];
 	let denominator = $state<Denominator>('c');
 
-	$effect(() => {});
-
 	$effect(() => {
 		const shownWords: TaggedWordCounts[] = [];
 
@@ -194,6 +192,6 @@
 	{/each}
 </p>
 
-<div class="w-full max-w-3xl">
+<div class="w-full max-w-80">
 	<canvas bind:this={canvas} width="400" height="400"></canvas>
 </div>
