@@ -34,7 +34,15 @@
 		interjection_head: 'intj'
 	};
 
-	const COLUMNS = ['total', ...tags, 'iv/c', 'tv/c'] as const;
+	const COLUMNS = [
+		'total',
+		...tags,
+		'cnt',
+		'noun/c',
+		'iverb/c',
+		'tverb/c',
+		'mod/c'
+	] as const;
 	type Column = (typeof COLUMNS)[number];
 
 	function getColumnName(col: Column) {
@@ -75,19 +83,30 @@
 			word.counts.iverb +
 			word.counts.modifier;
 
+		if (col === 'cnt') {
+			return contentCount;
+		}
+
+		if (col.endsWith('/c')) {
+			if (contentCount === 0) return undefined;
+
+			let baseCol = col.slice(0, -2);
+			if (baseCol === 'mod') baseCol = 'modifier';
+
+			if (word.counts[baseCol as Tag] === 0) return undefined;
+			return percent(word.counts[baseCol as Tag], contentCount);
+		}
+
 		switch (col) {
 			case 'total':
 				return word.total;
-			case 'iv/c':
-				return percent(word.counts.iverb, contentCount);
-			case 'tv/c':
-				return percent(word.counts.tverb, contentCount);
 			default:
 				return undefined;
 		}
 	}
 
 	let query = $state('');
+	let exact = $state(true);
 
 	function filterWords(words: string[]) {
 		if (!query) return words;
@@ -100,6 +119,10 @@
 
 		return words.filter((word) =>
 			queries.some((q) => {
+				if (exact) {
+					return word === q;
+				}
+
 				const lq = q.toLowerCase();
 				return (
 					word.includes(lq) ||
@@ -151,13 +174,15 @@
 	</button>
 </p>
 
-<p class="mt-2">
+<p class="mt-2 flex gap-1">
 	<input
 		type="text"
 		class="rounded border px-2 py-1 text-sm outline-offset-4"
 		bind:value={query}
 		placeholder="o alasa..."
 	/>
+
+	{@render toggle('exact', exact, () => (exact = !exact))}
 </p>
 
 {#each years as { year, open }, i}
