@@ -19,6 +19,7 @@
 	);
 
 	let method = $state<'union' | 'intersection'>('union');
+	let showChart = $state(true);
 
 	const tagNames: Record<Tag, string> = {
 		noun: 'noun',
@@ -152,6 +153,8 @@
 	>
 		{method === 'union' ? 'union' : 'intersection'}
 	</button>
+
+	<Toggle bind:active={showChart}>scatter chart</Toggle>
 </p>
 
 <p class="mt-2 flex gap-1">
@@ -189,7 +192,9 @@
 	</div>
 
 	{#if open}
-		<Scatter words={discordWords} />
+		{#if showChart}
+			<Scatter words={discordWords} />
+		{/if}
 
 		<div class="mt-2 flex flex-col" transition:slide>
 			<div class="sticky top-0">
