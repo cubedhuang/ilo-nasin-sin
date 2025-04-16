@@ -192,6 +192,6 @@
 	{/each}
 </p>
 
-<div class="w-full max-w-80">
+<div class="w-full max-w-xl">
 	<canvas bind:this={canvas} width="400" height="400"></canvas>
 </div>
