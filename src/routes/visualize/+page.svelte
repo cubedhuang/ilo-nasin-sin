@@ -3,16 +3,13 @@
 	import _discordData from './taggedcounts.json';
 	import { tags, type Tag } from '$lib/tag';
 	import { slide } from 'svelte/transition';
+	import Scatter from './Scatter.svelte';
+	import type { TaggedCounts, TaggedWordCounts } from './types';
+	import { percent } from './utils';
+	import Toggle from './Toggle.svelte';
 
 	const pokiData = _pokiData as TaggedCounts;
 	const discordData = _discordData as TaggedCounts;
-
-	type TaggedCounts = Record<string, Record<string, TaggedWordCounts>>;
-	type TaggedWordCounts = {
-		word: string;
-		counts: Record<Tag, number>;
-		total: number;
-	};
 
 	const years = $state(
 		[2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017].map((year) => ({
@@ -63,10 +60,6 @@
 		}))
 	);
 	const activeColumns = $derived(columns.filter((column) => column.active));
-
-	function percent(value: number, total: number) {
-		return ((value / total) * 100).toFixed(1) + '%';
-	}
 
 	function getColumnValue(
 		word: TaggedWordCounts,
@@ -144,24 +137,11 @@
 	Compare words between the <i>ma pona pi toki pona</i> and <i>poki Lapo</i> corpora.
 </p>
 
-{#snippet toggle(text: string, active: boolean, onclick: () => void)}
-	<button
-		class="rounded border px-2 py-1 text-sm font-semibold transition {active
-			? 'border-gray-800 bg-gray-800 text-gray-200 hover:bg-gray-700'
-			: 'text-gray-500 hover:bg-gray-50'}"
-		{onclick}
-	>
-		{text}
-	</button>
-{/snippet}
-
 <p class="mt-2 flex gap-1">
 	{#each columns as column}
-		{@render toggle(
-			getColumnName(column.col),
-			column.active,
-			() => (column.active = !column.active)
-		)}
+		<Toggle bind:active={column.active}>
+			{getColumnName(column.col)}
+		</Toggle>
 	{/each}
 </p>
 
@@ -182,7 +162,7 @@
 		placeholder="o alasa..."
 	/>
 
-	{@render toggle('exact', exact, () => (exact = !exact))}
+	<Toggle bind:active={exact}>Exact</Toggle>
 </p>
 
 {#each years as { year, open }, i}
@@ -209,6 +189,8 @@
 	</div>
 
 	{#if open}
+		<Scatter words={discordWords} />
+
 		<div class="mt-2 flex flex-col" transition:slide>
 			<div class="sticky top-0">
 				<div
