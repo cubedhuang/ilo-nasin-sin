@@ -1,13 +1,18 @@
 <script lang="ts">
 	import Chart from 'chart.js/auto';
-	import { onMount } from 'svelte';
 
 	import linku from './linku.json';
 	import type { TaggedWordCounts } from './types';
 	import { percent } from './utils';
 	import Toggle from './Toggle.svelte';
 
-	const { words }: { words: Record<string, TaggedWordCounts> } = $props();
+	const {
+		words,
+		query
+	}: {
+		words: Record<string, TaggedWordCounts>;
+		query: string;
+	} = $props();
 
 	const goodWords = new Set(
 		Object.values(linku)
@@ -27,14 +32,15 @@
 		{ label: 'iverb', value: 'iv' },
 		{ label: 'tverb', value: 'tv' },
 		{ label: 'modifier', value: 'm' },
-		{ label: 'verb', value: 'v' }
+		{ label: 'verb', value: 'v' },
+		{ label: 'prep', value: 'prep' }
 	] as const;
 	type Axis = (typeof axisOptions)[number]['value'];
 	const axes = $state({
 		x: 'n',
 		y: 'v'
 	});
-	const denominators = ['c', 'v', 'c-mod'] as const;
+	const denominators = ['total', 'c', 'v', 'c-mod'] as const;
 	type Denominator = (typeof denominators)[number];
 	let denominator = $state<Denominator>('c');
 
@@ -43,6 +49,8 @@
 
 		for (const word of Object.values(words)) {
 			if (!goodWords.has(word.word)) continue;
+
+			// if (word.counts.preposition === 0) continue;
 
 			const contentCount =
 				word.counts.noun +
@@ -57,41 +65,43 @@
 		const chart = new Chart(canvas, {
 			type: 'scatter',
 			data: {
-				datasets: [
-					{
+				datasets: shownWords.map((word) => {
+					const contentCount =
+						word.counts.noun +
+						word.counts.tverb +
+						word.counts.iverb +
+						word.counts.modifier;
+					let denom = contentCount;
+					if (denominator === 'v') {
+						denom = word.counts.tverb + word.counts.iverb;
+					} else if (denominator === 'c-mod') {
+						denom = contentCount - word.counts.modifier;
+					} else if (denominator === 'total') {
+						denom = word.total;
+					}
+					const value = {
+						label: word.word,
+						n: word.counts.noun / denom,
+						iv: word.counts.iverb / denom,
+						tv: word.counts.tverb / denom,
+						m: word.counts.modifier / denom,
+						v: (word.counts.tverb + word.counts.iverb) / denom,
+						prep: word.counts.preposition / denom,
+						x: 0,
+						y: 0
+					};
+					value.x = value[axes.x as 'n'];
+					value.y = value[axes.y as 'n'];
+
+					return {
 						xAxisID: axes.x,
 						yAxisID: axes.y,
-						data: shownWords.map((word) => {
-							const contentCount =
-								word.counts.noun +
-								word.counts.tverb +
-								word.counts.iverb +
-								word.counts.modifier;
-							let denom = contentCount;
-							if (denominator === 'v') {
-								denom = word.counts.tverb + word.counts.iverb;
-							} else if (denominator === 'c-mod') {
-								denom = contentCount - word.counts.modifier;
-							}
-							const value = {
-								label: word.word,
-								n: word.counts.noun / denom,
-								iv: word.counts.iverb / denom,
-								tv: word.counts.tverb / denom,
-								m: word.counts.modifier / denom,
-								v:
-									(word.counts.tverb + word.counts.iverb) /
-									denom,
-								x: 0,
-								y: 0
-							};
-							value.x = value[axes.x as 'n'];
-							value.y = value[axes.y as 'n'];
-							return value;
-						}),
-						backgroundColor: 'rgba(255, 99, 132, 1)'
-					}
-				]
+						data: [value],
+						backgroundColor: query.split(' ').includes(word.word)
+							? 'rgba(54, 162, 235, 1)'
+							: 'rgba(255, 99, 132, 1)'
+					};
+				})
 			},
 			options: {
 				transitions: {},
@@ -108,6 +118,7 @@
 								>;
 
 								const DISPLAYED: Record<Denominator, Axis[]> = {
+									total: ['n', 'iv', 'tv', 'm', 'prep'],
 									c: ['n', 'iv', 'tv', 'm'],
 									v: ['iv', 'tv'],
 									'c-mod': ['n', 'iv', 'tv']
@@ -139,7 +150,7 @@
 							text: axes.x + '/' + denominator
 						},
 						type: 'linear',
-						position: 'top'
+						position: 'bottom'
 						// min: 0,
 						// max: 1
 					},
@@ -150,10 +161,10 @@
 							text: axes.y + '/' + denominator
 						},
 						type: 'linear',
-						position: 'left',
+						position: 'left'
 						// min: 0,
 						// max: 1,
-						reverse: true
+						// reverse: true
 					}
 				}
 			}
@@ -192,6 +203,6 @@
 	{/each}
 </p>
 
-<div class="w-full max-w-xl">
+<div class="w-full max-w-80">
 	<canvas bind:this={canvas} width="400" height="400"></canvas>
 </div>

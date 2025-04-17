@@ -193,7 +193,14 @@
 
 	{#if open}
 		{#if showChart}
-			<Scatter words={discordWords} />
+			<div class="flex gap-2">
+				<div>
+					<Scatter words={discordWords} {query} />
+				</div>
+				<div>
+					<Scatter words={pokiWords} {query} />
+				</div>
+			</div>
 		{/if}
 
 		<div class="mt-2 flex flex-col" transition:slide>
