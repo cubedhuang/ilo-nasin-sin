@@ -36,13 +36,28 @@
 		{ label: 'prep', value: 'prep' }
 	] as const;
 	type Axis = (typeof axisOptions)[number]['value'];
-	const axes = $state({
+	const axes = $state<{ x: Axis; y: Axis }>({
 		x: 'n',
 		y: 'v'
 	});
 	const denominators = ['total', 'c', 'v', 'c-mod'] as const;
 	type Denominator = (typeof denominators)[number];
 	let denominator = $state<Denominator>('c');
+
+	const axesNames: Record<Axis, string> = {
+		n: 'Noun',
+		iv: 'IVerb',
+		tv: 'TVerb',
+		m: 'Mod',
+		v: 'Verb',
+		prep: 'Prep'
+	};
+	const denominatorNames: Record<Denominator, string> = {
+		total: 'Total',
+		c: 'Content',
+		v: 'Verb',
+		'c-mod': '(Content - Mod)'
+	};
 
 	$effect(() => {
 		const shownWords: TaggedWordCounts[] = [];
@@ -147,7 +162,11 @@
 						axis: 'x',
 						title: {
 							display: true,
-							text: axes.x + '/' + denominator
+							text:
+								axesNames[axes.x] +
+								' count / ' +
+								denominatorNames[denominator] +
+								' count'
 						},
 						type: 'linear',
 						position: 'bottom'
@@ -158,7 +177,11 @@
 						axis: 'y',
 						title: {
 							display: true,
-							text: axes.y + '/' + denominator
+							text:
+								axesNames[axes.y] +
+								' count / ' +
+								denominatorNames[denominator] +
+								' count'
 						},
 						type: 'linear',
 						position: 'left'

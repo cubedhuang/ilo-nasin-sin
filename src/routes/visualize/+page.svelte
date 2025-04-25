@@ -7,6 +7,7 @@
 	import type { TaggedCounts, TaggedWordCounts } from './types';
 	import { percent } from './utils';
 	import Toggle from './Toggle.svelte';
+	import ScatterWords from './ScatterWords.svelte';
 
 	const pokiData = _pokiData as TaggedCounts;
 	const discordData = _discordData as TaggedCounts;
@@ -195,10 +196,11 @@
 		{#if showChart}
 			<div class="flex gap-2">
 				<div>
-					<Scatter words={discordWords} {query} />
+					<!-- <Scatter words={discordWords} {query} /> -->
+					<ScatterWords words={discordWords} {query} />
 				</div>
 				<div>
-					<Scatter words={pokiWords} {query} />
+					<ScatterWords words={pokiWords} {query} />
 				</div>
 			</div>
 		{/if}
