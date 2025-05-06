@@ -8,10 +8,24 @@
 	import Toggle from '../Toggle.svelte';
 	import LineChart from './LineChart.svelte';
 	import LineChartIntj from './LineChartIntj.svelte';
+	import LineChartTags from './LineChartTags.svelte';
 
 	const pokiData = _pokiData as TaggedCounts;
 	const discordData = _discordData as TaggedCounts;
 </script>
 
-<LineChart data={discordData} words={['luka', 'uta']} />
-<LineChartIntj datas={[discordData, pokiData]} word="wawa" />
+<LineChart data={discordData} words={['luka', 'uta']} tag="tverb" />
+<LineChartTags data={discordData} word="pu" tags={['noun', 'modifier']} />
+<LineChartIntj
+	datas={[discordData, pokiData]}
+	word="pona"
+	tag="interjection_head"
+/>
+<LineChartIntj
+	datas={[discordData, pokiData]}
+	word="wawa"
+	tag="interjection_head"
+/>
+<LineChartIntj datas={[discordData, pokiData]} word="luka" tag="tverb" />
+<LineChartIntj datas={[discordData, pokiData]} word="uta" tag="tverb" />
+<LineChartIntj datas={[discordData, pokiData]} word="pu" tag="noun" />

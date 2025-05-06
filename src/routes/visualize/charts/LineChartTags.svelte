@@ -8,10 +8,10 @@
 	let canvas: HTMLCanvasElement;
 
 	const {
-		datas,
+		data,
 		word,
-		tag
-	}: { datas: TaggedCounts[]; word: string; tag: Tag } = $props();
+		tags
+	}: { data: TaggedCounts; word: string; tags: Tag[] } = $props();
 
 	const years = [2020, 2021, 2022, 2023, 2024].map((x) => x.toString());
 
@@ -20,21 +20,26 @@
 			type: 'line',
 			data: {
 				xLabels: years,
-				datasets: datas.map((data, i) => {
+				datasets: tags.map((tag, i) => {
 					return {
-						label: i === 0 ? 'ma pona pi toki pona' : 'poki Lapo',
+						label: tag,
 						data: years.map((year) => {
 							const yearData = data[year];
 							if (!yearData) return 0;
 							const wordData = yearData[word];
 							if (!wordData) return 0;
 
-							const intj = wordData.counts[tag];
+							const tagCount = wordData.counts[tag];
+							const contentCount =
+								wordData.counts.noun +
+								wordData.counts.tverb +
+								wordData.counts.iverb +
+								wordData.counts.modifier;
 
-							return intj / wordData.total;
+							return tagCount / contentCount;
 						}),
-						borderColor: `hsl(${(i / datas.length) * 360}, 80%, 60%)`,
-						backgroundColor: `hsl(${(i / datas.length) * 360}, 80%, 60%)`
+						borderColor: `hsl(${(i / tags.length) * 360}, 80%, 60%)`,
+						backgroundColor: `hsl(${(i / tags.length) * 360}, 80%, 60%)`
 					};
 				})
 			},
@@ -43,7 +48,7 @@
 				plugins: {
 					title: {
 						display: true,
-						text: `Intj count / Total count for ${word}`
+						text: `Noun, Mod count / Content count for pu in ma pona pi toki pona, 2024`
 					}
 				},
 				scales: {
@@ -69,7 +74,7 @@
 						axis: 'y',
 						title: {
 							display: true,
-							text: 'Intj count / Total'
+							text: 'Tag count / Content count'
 						},
 						type: 'linear',
 						position: 'left',

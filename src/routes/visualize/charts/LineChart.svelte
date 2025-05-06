@@ -3,10 +3,15 @@
 
 	import type { TaggedCounts, TaggedWordCounts } from '../types';
 	import { percent } from '../utils';
+	import type { Tag } from '$lib/tag';
 
 	let canvas: HTMLCanvasElement;
 
-	const { data, words }: { data: TaggedCounts; words: string[] } = $props();
+	const {
+		data,
+		words,
+		tag
+	}: { data: TaggedCounts; words: string[]; tag: Tag } = $props();
 
 	const years = [2020, 2021, 2022, 2023, 2024].map((x) => x.toString());
 
@@ -24,14 +29,14 @@
 							const wordData = yearData[word];
 							if (!wordData) return 0;
 
-							const tverbCount = wordData.counts.tverb;
+							const tagCount = wordData.counts[tag];
 							const contentCount =
 								wordData.counts.noun +
 								wordData.counts.tverb +
 								wordData.counts.iverb +
 								wordData.counts.modifier;
 
-							return tverbCount / contentCount;
+							return tagCount / contentCount;
 						}),
 						borderColor: `hsl(${(i / words.length) * 360}, 80%, 60%)`,
 						backgroundColor: `hsl(${(i / words.length) * 360}, 80%, 60%)`
@@ -40,7 +45,12 @@
 			},
 			options: {
 				transitions: {},
-				plugins: {},
+				plugins: {
+					title: {
+						display: true,
+						text: `TVerb count / Content count for ${words.join(', ')} in ma pona pi toki pona, 2024`
+					}
+				},
 				scales: {
 					x: {
 						axis: 'x',
@@ -64,7 +74,7 @@
 						axis: 'y',
 						title: {
 							display: true,
-							text: 'TVerb count / Content count'
+							text: 'Noun count / Content count'
 						},
 						type: 'linear',
 						position: 'left',
