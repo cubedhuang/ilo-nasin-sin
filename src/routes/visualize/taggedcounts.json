@@ -42,6 +42,20 @@
       },
       "total": 2662
     },
+    "alasa": {
+      "word": "alasa",
+      "counts": {
+        "noun": 2,
+        "tverb": 12,
+        "iverb": 2,
+        "modifier": 7,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 6
+      },
+      "total": 29
+    },
     "ale": {
       "word": "ale",
       "counts": {
@@ -476,6 +490,20 @@
       },
       "total": 676
     },
+    "kijetesantakalu": {
+      "word": "kijetesantakalu",
+      "counts": {
+        "noun": 3,
+        "tverb": 0,
+        "iverb": 0,
+        "modifier": 3,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 6
+      },
+      "total": 12
+    },
     "kili": {
       "word": "kili",
       "counts": {
@@ -503,6 +531,20 @@
         "interjection_head": 51
       },
       "total": 447
+    },
+    "kipisi": {
+      "word": "kipisi",
+      "counts": {
+        "noun": 3,
+        "tverb": 3,
+        "iverb": 2,
+        "modifier": 7,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 4
+      },
+      "total": 19
     },
     "kiwen": {
       "word": "kiwen",
@@ -602,6 +644,20 @@
       },
       "total": 2074
     },
+    "lanpan": {
+      "word": "lanpan",
+      "counts": {
+        "noun": 1,
+        "tverb": 12,
+        "iverb": 0,
+        "modifier": 7,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 1
+      },
+      "total": 21
+    },
     "lape": {
       "word": "lape",
       "counts": {
@@ -643,6 +699,20 @@
         "interjection_head": 12
       },
       "total": 233
+    },
+    "leko": {
+      "word": "leko",
+      "counts": {
+        "noun": 1,
+        "tverb": 0,
+        "iverb": 0,
+        "modifier": 5,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 6
+      },
+      "total": 12
     },
     "len": {
       "word": "len",
@@ -713,6 +783,20 @@
         "interjection_head": 12
       },
       "total": 91
+    },
+    "linluwi": {
+      "word": "linluwi",
+      "counts": {
+        "noun": 4,
+        "tverb": 0,
+        "iverb": 1,
+        "modifier": 7,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 2
+      },
+      "total": 14
     },
     "lipu": {
       "word": "lipu",
@@ -1035,6 +1119,34 @@
         "interjection_head": 29
       },
       "total": 1350
+    },
+    "n": {
+      "word": "n",
+      "counts": {
+        "noun": 1,
+        "tverb": 0,
+        "iverb": 1,
+        "modifier": 7,
+        "particle": 1,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 16
+      },
+      "total": 26
+    },
+    "namako": {
+      "word": "namako",
+      "counts": {
+        "noun": 2,
+        "tverb": 0,
+        "iverb": 3,
+        "modifier": 6,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 6
+      },
+      "total": 17
     },
     "nanpa": {
       "word": "nanpa",
@@ -1651,6 +1763,20 @@
         "interjection_head": 47
       },
       "total": 243
+    },
+    "su": {
+      "word": "su",
+      "counts": {
+        "noun": 0,
+        "tverb": 0,
+        "iverb": 0,
+        "modifier": 3,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 1
+      },
+      "total": 4
     },
     "suli": {
       "word": "suli",
@@ -2284,6 +2410,20 @@
       },
       "total": 4354
     },
+    "jasima": {
+      "word": "jasima",
+      "counts": {
+        "noun": 3,
+        "tverb": 0,
+        "iverb": 3,
+        "modifier": 4,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 5
+      },
+      "total": 15
+    },
     "jelo": {
       "word": "jelo",
       "counts": {
@@ -2438,6 +2578,20 @@
       },
       "total": 746
     },
+    "kijetesantakalu": {
+      "word": "kijetesantakalu",
+      "counts": {
+        "noun": 2,
+        "tverb": 0,
+        "iverb": 4,
+        "modifier": 5,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 7
+      },
+      "total": 18
+    },
     "kili": {
       "word": "kili",
       "counts": {
@@ -2465,6 +2619,20 @@
         "interjection_head": 44
       },
       "total": 791
+    },
+    "kipisi": {
+      "word": "kipisi",
+      "counts": {
+        "noun": 4,
+        "tverb": 2,
+        "iverb": 4,
+        "modifier": 14,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 3
+      },
+      "total": 27
     },
     "kiwa": {
       "word": "kiwa",
@@ -2535,6 +2703,20 @@
         "interjection_head": 30
       },
       "total": 334
+    },
+    "ku": {
+      "word": "ku",
+      "counts": {
+        "noun": 0,
+        "tverb": 0,
+        "iverb": 1,
+        "modifier": 0,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 0
+      },
+      "total": 1
     },
     "kule": {
       "word": "kule",
@@ -2648,6 +2830,20 @@
       },
       "total": 424
     },
+    "leko": {
+      "word": "leko",
+      "counts": {
+        "noun": 4,
+        "tverb": 0,
+        "iverb": 0,
+        "modifier": 4,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 1
+      },
+      "total": 9
+    },
     "len": {
       "word": "len",
       "counts": {
@@ -2731,6 +2927,20 @@
         "interjection_head": 32
       },
       "total": 165
+    },
+    "linluwi": {
+      "word": "linluwi",
+      "counts": {
+        "noun": 2,
+        "tverb": 0,
+        "iverb": 0,
+        "modifier": 1,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 2
+      },
+      "total": 5
     },
     "lipu": {
       "word": "lipu",
@@ -2857,6 +3067,20 @@
         "interjection_head": 179
       },
       "total": 1166
+    },
+    "majuna": {
+      "word": "majuna",
+      "counts": {
+        "noun": 3,
+        "tverb": 0,
+        "iverb": 2,
+        "modifier": 14,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 3
+      },
+      "total": 22
     },
     "makuwe": {
       "word": "makuwe",
@@ -3067,6 +3291,20 @@
         "interjection_head": 25
       },
       "total": 39
+    },
+    "namako": {
+      "word": "namako",
+      "counts": {
+        "noun": 2,
+        "tverb": 2,
+        "iverb": 4,
+        "modifier": 12,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 6
+      },
+      "total": 26
     },
     "nanpa": {
       "word": "nanpa",
@@ -3656,6 +3894,20 @@
       },
       "total": 524
     },
+    "su": {
+      "word": "su",
+      "counts": {
+        "noun": 0,
+        "tverb": 0,
+        "iverb": 0,
+        "modifier": 3,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 1
+      },
+      "total": 4
+    },
     "suli": {
       "word": "suli",
       "counts": {
@@ -4190,6 +4442,20 @@
       },
       "total": 46
     },
+    "epiku": {
+      "word": "epiku",
+      "counts": {
+        "noun": 0,
+        "tverb": 0,
+        "iverb": 3,
+        "modifier": 5,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 11
+      },
+      "total": 19
+    },
     "esun": {
       "word": "esun",
       "counts": {
@@ -4315,6 +4581,20 @@
         "interjection_head": 449
       },
       "total": 3652
+    },
+    "jasima": {
+      "word": "jasima",
+      "counts": {
+        "noun": 0,
+        "tverb": 1,
+        "iverb": 2,
+        "modifier": 0,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 2
+      },
+      "total": 5
     },
     "jelo": {
       "word": "jelo",
@@ -4456,6 +4736,20 @@
       },
       "total": 787
     },
+    "kijetesantakalu": {
+      "word": "kijetesantakalu",
+      "counts": {
+        "noun": 4,
+        "tverb": 0,
+        "iverb": 2,
+        "modifier": 5,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 17
+      },
+      "total": 28
+    },
     "kili": {
       "word": "kili",
       "counts": {
@@ -4483,6 +4777,20 @@
         "interjection_head": 28
       },
       "total": 558
+    },
+    "kipisi": {
+      "word": "kipisi",
+      "counts": {
+        "noun": 4,
+        "tverb": 7,
+        "iverb": 2,
+        "modifier": 11,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 3
+      },
+      "total": 27
     },
     "kiwen": {
       "word": "kiwen",
@@ -4525,6 +4833,20 @@
         "interjection_head": 14
       },
       "total": 259
+    },
+    "ku": {
+      "word": "ku",
+      "counts": {
+        "noun": 0,
+        "tverb": 0,
+        "iverb": 0,
+        "modifier": 4,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 2
+      },
+      "total": 6
     },
     "kule": {
       "word": "kule",
@@ -4722,6 +5044,20 @@
       },
       "total": 128
     },
+    "linluwi": {
+      "word": "linluwi",
+      "counts": {
+        "noun": 5,
+        "tverb": 0,
+        "iverb": 1,
+        "modifier": 7,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 2
+      },
+      "total": 15
+    },
     "lipu": {
       "word": "lipu",
       "counts": {
@@ -4918,6 +5254,20 @@
       },
       "total": 110
     },
+    "misikeke": {
+      "word": "misikeke",
+      "counts": {
+        "noun": 0,
+        "tverb": 0,
+        "iverb": 0,
+        "modifier": 2,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 0
+      },
+      "total": 2
+    },
     "moku": {
       "word": "moku",
       "counts": {
@@ -5029,6 +5379,20 @@
         "interjection_head": 47
       },
       "total": 2008
+    },
+    "n": {
+      "word": "n",
+      "counts": {
+        "noun": 2,
+        "tverb": 0,
+        "iverb": 1,
+        "modifier": 4,
+        "particle": 1,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 20
+      },
+      "total": 28
     },
     "namako": {
       "word": "namako",
@@ -5632,6 +5996,20 @@
       },
       "total": 1089
     },
+    "soko": {
+      "word": "soko",
+      "counts": {
+        "noun": 4,
+        "tverb": 0,
+        "iverb": 0,
+        "modifier": 2,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 3
+      },
+      "total": 9
+    },
     "sona": {
       "word": "sona",
       "counts": {
@@ -5687,6 +6065,20 @@
         "interjection_head": 48
       },
       "total": 363
+    },
+    "su": {
+      "word": "su",
+      "counts": {
+        "noun": 0,
+        "tverb": 0,
+        "iverb": 2,
+        "modifier": 2,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 1
+      },
+      "total": 5
     },
     "suli": {
       "word": "suli",
@@ -5841,6 +6233,20 @@
         "interjection_head": 70
       },
       "total": 1160
+    },
+    "tonsi": {
+      "word": "tonsi",
+      "counts": {
+        "noun": 1,
+        "tverb": 0,
+        "iverb": 2,
+        "modifier": 3,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 4
+      },
+      "total": 10
     },
     "tosi": {
       "word": "tosi",
@@ -6949,6 +7355,20 @@
         "interjection_head": 111
       },
       "total": 1478
+    },
+    "ku": {
+      "word": "ku",
+      "counts": {
+        "noun": 0,
+        "tverb": 0,
+        "iverb": 0,
+        "modifier": 5,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 12
+      },
+      "total": 17
     },
     "kule": {
       "word": "kule",
@@ -29542,6 +29962,34 @@
       },
       "total": 253
     },
+    "ali": {
+      "word": "ali",
+      "counts": {
+        "noun": 7,
+        "tverb": 0,
+        "iverb": 3,
+        "modifier": 16,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 3
+      },
+      "total": 29
+    },
+    "anpa": {
+      "word": "anpa",
+      "counts": {
+        "noun": 3,
+        "tverb": 2,
+        "iverb": 15,
+        "modifier": 6,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 2
+      },
+      "total": 28
+    },
     "ante": {
       "word": "ante",
       "counts": {
@@ -29611,6 +30059,34 @@
         "interjection_head": 0
       },
       "total": 59
+    },
+    "epiku": {
+      "word": "epiku",
+      "counts": {
+        "noun": 0,
+        "tverb": 0,
+        "iverb": 4,
+        "modifier": 4,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 12
+      },
+      "total": 20
+    },
+    "esun": {
+      "word": "esun",
+      "counts": {
+        "noun": 0,
+        "tverb": 8,
+        "iverb": 3,
+        "modifier": 4,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 2
+      },
+      "total": 17
     },
     "ijo": {
       "word": "ijo",
@@ -29710,6 +30186,20 @@
       },
       "total": 631
     },
+    "jasima": {
+      "word": "jasima",
+      "counts": {
+        "noun": 0,
+        "tverb": 1,
+        "iverb": 0,
+        "modifier": 2,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 0
+      },
+      "total": 3
+    },
     "jelo": {
       "word": "jelo",
       "counts": {
@@ -29737,6 +30227,20 @@
         "interjection_head": 1
       },
       "total": 96
+    },
+    "kala": {
+      "word": "kala",
+      "counts": {
+        "noun": 12,
+        "tverb": 0,
+        "iverb": 3,
+        "modifier": 1,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 6
+      },
+      "total": 22
     },
     "kalama": {
       "word": "kalama",
@@ -29808,6 +30312,20 @@
       },
       "total": 179
     },
+    "kijetesantakalu": {
+      "word": "kijetesantakalu",
+      "counts": {
+        "noun": 3,
+        "tverb": 0,
+        "iverb": 2,
+        "modifier": 10,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 10
+      },
+      "total": 25
+    },
     "kili": {
       "word": "kili",
       "counts": {
@@ -29836,6 +30354,48 @@
       },
       "total": 98
     },
+    "kipisi": {
+      "word": "kipisi",
+      "counts": {
+        "noun": 0,
+        "tverb": 2,
+        "iverb": 1,
+        "modifier": 3,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 2
+      },
+      "total": 8
+    },
+    "kiwen": {
+      "word": "kiwen",
+      "counts": {
+        "noun": 8,
+        "tverb": 0,
+        "iverb": 6,
+        "modifier": 6,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 6
+      },
+      "total": 26
+    },
+    "ko": {
+      "word": "ko",
+      "counts": {
+        "noun": 21,
+        "tverb": 0,
+        "iverb": 3,
+        "modifier": 3,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 2
+      },
+      "total": 29
+    },
     "kon": {
       "word": "kon",
       "counts": {
@@ -29849,6 +30409,20 @@
         "interjection_head": 3
       },
       "total": 55
+    },
+    "ku": {
+      "word": "ku",
+      "counts": {
+        "noun": 3,
+        "tverb": 0,
+        "iverb": 3,
+        "modifier": 5,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 2
+      },
+      "total": 13
     },
     "kule": {
       "word": "kule",
@@ -29906,6 +30480,20 @@
       },
       "total": 758
     },
+    "lanpan": {
+      "word": "lanpan",
+      "counts": {
+        "noun": 0,
+        "tverb": 5,
+        "iverb": 2,
+        "modifier": 1,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 0
+      },
+      "total": 8
+    },
     "lape": {
       "word": "lape",
       "counts": {
@@ -29948,6 +30536,20 @@
       },
       "total": 98
     },
+    "leko": {
+      "word": "leko",
+      "counts": {
+        "noun": 1,
+        "tverb": 0,
+        "iverb": 1,
+        "modifier": 3,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 6
+      },
+      "total": 11
+    },
     "len": {
       "word": "len",
       "counts": {
@@ -29961,6 +30563,20 @@
         "interjection_head": 5
       },
       "total": 34
+    },
+    "lete": {
+      "word": "lete",
+      "counts": {
+        "noun": 4,
+        "tverb": 0,
+        "iverb": 7,
+        "modifier": 8,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 3
+      },
+      "total": 22
     },
     "li": {
       "word": "li",
@@ -30003,6 +30619,20 @@
         "interjection_head": 7
       },
       "total": 56
+    },
+    "linluwi": {
+      "word": "linluwi",
+      "counts": {
+        "noun": 1,
+        "tverb": 0,
+        "iverb": 1,
+        "modifier": 2,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 1
+      },
+      "total": 5
     },
     "lipu": {
       "word": "lipu",
@@ -30074,6 +30704,20 @@
       },
       "total": 171
     },
+    "lupa": {
+      "word": "lupa",
+      "counts": {
+        "noun": 2,
+        "tverb": 0,
+        "iverb": 0,
+        "modifier": 2,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 0
+      },
+      "total": 4
+    },
     "ma": {
       "word": "ma",
       "counts": {
@@ -30087,6 +30731,20 @@
         "interjection_head": 29
       },
       "total": 209
+    },
+    "majuna": {
+      "word": "majuna",
+      "counts": {
+        "noun": 0,
+        "tverb": 0,
+        "iverb": 5,
+        "modifier": 13,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 3
+      },
+      "total": 21
     },
     "mama": {
       "word": "mama",
@@ -30102,6 +30760,20 @@
       },
       "total": 43
     },
+    "mani": {
+      "word": "mani",
+      "counts": {
+        "noun": 11,
+        "tverb": 0,
+        "iverb": 5,
+        "modifier": 6,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 3
+      },
+      "total": 25
+    },
     "meli": {
       "word": "meli",
       "counts": {
@@ -30115,6 +30787,20 @@
         "interjection_head": 5
       },
       "total": 48
+    },
+    "meso": {
+      "word": "meso",
+      "counts": {
+        "noun": 0,
+        "tverb": 0,
+        "iverb": 1,
+        "modifier": 6,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 2
+      },
+      "total": 9
     },
     "mi": {
       "word": "mi",
@@ -30144,6 +30830,20 @@
       },
       "total": 44
     },
+    "misikeke": {
+      "word": "misikeke",
+      "counts": {
+        "noun": 8,
+        "tverb": 0,
+        "iverb": 0,
+        "modifier": 3,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 3
+      },
+      "total": 14
+    },
     "moku": {
       "word": "moku",
       "counts": {
@@ -30171,6 +30871,34 @@
         "interjection_head": 3
       },
       "total": 41
+    },
+    "monsi": {
+      "word": "monsi",
+      "counts": {
+        "noun": 4,
+        "tverb": 1,
+        "iverb": 1,
+        "modifier": 4,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 0
+      },
+      "total": 10
+    },
+    "monsuta": {
+      "word": "monsuta",
+      "counts": {
+        "noun": 4,
+        "tverb": 1,
+        "iverb": 4,
+        "modifier": 4,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 3
+      },
+      "total": 16
     },
     "mu": {
       "word": "mu",
@@ -30242,6 +30970,20 @@
       },
       "total": 63
     },
+    "namako": {
+      "word": "namako",
+      "counts": {
+        "noun": 11,
+        "tverb": 0,
+        "iverb": 2,
+        "modifier": 10,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 0
+      },
+      "total": 23
+    },
     "nanpa": {
       "word": "nanpa",
       "counts": {
@@ -30284,6 +31026,20 @@
       },
       "total": 166
     },
+    "nena": {
+      "word": "nena",
+      "counts": {
+        "noun": 6,
+        "tverb": 0,
+        "iverb": 2,
+        "modifier": 0,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 5
+      },
+      "total": 13
+    },
     "ni": {
       "word": "ni",
       "counts": {
@@ -30312,6 +31068,34 @@
       },
       "total": 235
     },
+    "nimisin": {
+      "word": "nimisin",
+      "counts": {
+        "noun": 2,
+        "tverb": 0,
+        "iverb": 1,
+        "modifier": 0,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 2
+      },
+      "total": 5
+    },
+    "noka": {
+      "word": "noka",
+      "counts": {
+        "noun": 7,
+        "tverb": 1,
+        "iverb": 2,
+        "modifier": 3,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 0
+      },
+      "total": 13
+    },
     "o": {
       "word": "o",
       "counts": {
@@ -30325,6 +31109,20 @@
         "interjection_head": 11
       },
       "total": 460
+    },
+    "oko": {
+      "word": "oko",
+      "counts": {
+        "noun": 3,
+        "tverb": 1,
+        "iverb": 1,
+        "modifier": 2,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 0
+      },
+      "total": 7
     },
     "olin": {
       "word": "olin",
@@ -30396,6 +31194,34 @@
       },
       "total": 136
     },
+    "palisa": {
+      "word": "palisa",
+      "counts": {
+        "noun": 6,
+        "tverb": 0,
+        "iverb": 4,
+        "modifier": 4,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 7
+      },
+      "total": 21
+    },
+    "pan": {
+      "word": "pan",
+      "counts": {
+        "noun": 13,
+        "tverb": 1,
+        "iverb": 2,
+        "modifier": 6,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 1
+      },
+      "total": 23
+    },
     "pana": {
       "word": "pana",
       "counts": {
@@ -30438,6 +31264,20 @@
       },
       "total": 240
     },
+    "pimeja": {
+      "word": "pimeja",
+      "counts": {
+        "noun": 4,
+        "tverb": 0,
+        "iverb": 5,
+        "modifier": 18,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 1
+      },
+      "total": 28
+    },
     "pini": {
       "word": "pini",
       "counts": {
@@ -30451,6 +31291,20 @@
         "interjection_head": 1
       },
       "total": 83
+    },
+    "pipi": {
+      "word": "pipi",
+      "counts": {
+        "noun": 10,
+        "tverb": 0,
+        "iverb": 3,
+        "modifier": 2,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 4
+      },
+      "total": 19
     },
     "poka": {
       "word": "poka",
@@ -30466,6 +31320,20 @@
       },
       "total": 73
     },
+    "poki": {
+      "word": "poki",
+      "counts": {
+        "noun": 10,
+        "tverb": 2,
+        "iverb": 6,
+        "modifier": 3,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 4
+      },
+      "total": 25
+    },
     "pona": {
       "word": "pona",
       "counts": {
@@ -30479,6 +31347,20 @@
         "interjection_head": 64
       },
       "total": 847
+    },
+    "pu": {
+      "word": "pu",
+      "counts": {
+        "noun": 2,
+        "tverb": 0,
+        "iverb": 3,
+        "modifier": 9,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 3
+      },
+      "total": 17
     },
     "sama": {
       "word": "sama",
@@ -30507,6 +31389,20 @@
         "interjection_head": 3
       },
       "total": 41
+    },
+    "selo": {
+      "word": "selo",
+      "counts": {
+        "noun": 15,
+        "tverb": 0,
+        "iverb": 3,
+        "modifier": 1,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 3
+      },
+      "total": 22
     },
     "seme": {
       "word": "seme",
@@ -30592,6 +31488,20 @@
       },
       "total": 626
     },
+    "sinpin": {
+      "word": "sinpin",
+      "counts": {
+        "noun": 4,
+        "tverb": 0,
+        "iverb": 2,
+        "modifier": 2,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 0
+      },
+      "total": 8
+    },
     "sitelen": {
       "word": "sitelen",
       "counts": {
@@ -30605,6 +31515,20 @@
         "interjection_head": 51
       },
       "total": 326
+    },
+    "soko": {
+      "word": "soko",
+      "counts": {
+        "noun": 5,
+        "tverb": 0,
+        "iverb": 1,
+        "modifier": 1,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 4
+      },
+      "total": 11
     },
     "sona": {
       "word": "sona",
@@ -30634,6 +31558,20 @@
       },
       "total": 97
     },
+    "su": {
+      "word": "su",
+      "counts": {
+        "noun": 2,
+        "tverb": 0,
+        "iverb": 1,
+        "modifier": 6,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 0
+      },
+      "total": 9
+    },
     "suli": {
       "word": "suli",
       "counts": {
@@ -30661,6 +31599,20 @@
         "interjection_head": 10
       },
       "total": 59
+    },
+    "supa": {
+      "word": "supa",
+      "counts": {
+        "noun": 4,
+        "tverb": 0,
+        "iverb": 5,
+        "modifier": 2,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 3
+      },
+      "total": 14
     },
     "suwi": {
       "word": "suwi",
@@ -30774,6 +31726,20 @@
       },
       "total": 106
     },
+    "tonsi": {
+      "word": "tonsi",
+      "counts": {
+        "noun": 3,
+        "tverb": 1,
+        "iverb": 12,
+        "modifier": 8,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 1
+      },
+      "total": 25
+    },
     "tu": {
       "word": "tu",
       "counts": {
@@ -30787,6 +31753,20 @@
         "interjection_head": 3
       },
       "total": 133
+    },
+    "unpa": {
+      "word": "unpa",
+      "counts": {
+        "noun": 2,
+        "tverb": 2,
+        "iverb": 2,
+        "modifier": 10,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 1
+      },
+      "total": 17
     },
     "uta": {
       "word": "uta",
@@ -30816,6 +31796,20 @@
       },
       "total": 34
     },
+    "walo": {
+      "word": "walo",
+      "counts": {
+        "noun": 4,
+        "tverb": 0,
+        "iverb": 2,
+        "modifier": 8,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 0
+      },
+      "total": 14
+    },
     "wan": {
       "word": "wan",
       "counts": {
@@ -30829,6 +31823,20 @@
         "interjection_head": 3
       },
       "total": 126
+    },
+    "waso": {
+      "word": "waso",
+      "counts": {
+        "noun": 6,
+        "tverb": 2,
+        "iverb": 3,
+        "modifier": 6,
+        "particle": 0,
+        "preposition": 0,
+        "preverb": 0,
+        "interjection_head": 9
+      },
+      "total": 26
     },
     "wawa": {
       "word": "wawa",
