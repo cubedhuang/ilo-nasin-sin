@@ -148,6 +148,14 @@
 </p>
 
 <div class="mt-4">
+	<h1
+		class="mx-auto max-w-[30ch] text-center text-xs font-semibold leading-tight text-gray-800"
+	>
+		{axesNames[axes.x]} and{' '}
+		{axesNames[axes.y]} count over {denominatorNames[denominator]} count,
+		<i>ma pona pi toki pona</i>, 2024
+	</h1>
+
 	<div class="flex w-full items-center">
 		<div class="w-6">
 			<p
@@ -191,7 +199,7 @@
 						class="absolute left-0 -translate-x-full translate-y-1/2 pr-2 text-[8px] text-gray-500"
 						style:bottom="{i * (100 / rows)}%"
 					>
-						{(i / rows).toFixed(1)}
+						{(i * 0.1).toFixed(1)}
 					</div>
 				{/each}
 				{#each { length: columns + 1 } as _, i}
@@ -199,7 +207,7 @@
 						class="absolute top-full -translate-x-1/2 pt-1 text-[8px] text-gray-500"
 						style:left="{i * (100 / columns)}%"
 					>
-						{(i / columns).toFixed(1)}
+						{(i * 0.1).toFixed(1)}
 					</div>
 				{/each}
 			</div>
