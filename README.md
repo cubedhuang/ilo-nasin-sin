@@ -1,38 +1,9 @@
-# sv
+# ilo nasin sin
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+o lukin lon [lipu ni](https://nasin.nimi.li)!
 
-## Creating a project
+ilo ni li lukin e toki pona li pana e sona ni: nasin pi toki ni li seme? ona li poki e nimi li toki e ken mute pi poki ni.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Toki Pona Parser
 
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+This tool takes in Toki Pona text as input and parses it into trees. It takes ambiguities into account and outputs all possibilities.
