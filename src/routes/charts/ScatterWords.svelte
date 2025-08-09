@@ -130,7 +130,8 @@
 </script>
 
 {#each ['x', 'y'] as const as direction}
-	<p class="mt-2 flex gap-1">
+	<p class="mt-2 flex items-baseline gap-1">
+		<span class="w-14 text-sm font-semibold">{direction}-axis</span>
 		{#each axisOptions as axis}
 			<Toggle
 				active={axes[direction] === axis.value}
@@ -144,7 +145,8 @@
 	</p>
 {/each}
 
-<p class="mt-2 flex gap-1">
+<p class="mt-2 flex items-baseline gap-1">
+	<span class="w-14 text-sm font-semibold">denom</span>
 	{#each denominators as d}
 		<Toggle
 			active={denominator === d}
