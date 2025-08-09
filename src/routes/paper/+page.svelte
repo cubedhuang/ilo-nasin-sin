@@ -10,6 +10,13 @@
 		class="text-blue-500 hover:underline"
 		target="_blank"
 	>
-		Check it out here!
+		Download it here!
 	</a>
 </p>
+
+<iframe
+	src="/Language Change and Variation in Toki Pona.pdf"
+	class="mt-4 h-[calc(100vh-18rem)] w-full"
+	title="lipu"
+	allow="fullscreen"
+></iframe>
