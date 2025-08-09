@@ -135,6 +135,12 @@
 
 <h1 class="text-3xl font-bold">o lukin e poki</h1>
 
+<p class="my-4 rounded border border-blue-200 bg-blue-100 p-4 text-blue-800">
+	This page is not very well documented. It's mostly a mishmash of things that
+	I used to make visualizations in the past. I'm leaving it here since it
+	might be used to view the tables of data.
+</p>
+
 <p class="mt-2 text-gray-500">
 	Compare words between the <i>ma pona pi toki pona</i> and <i>poki Lapo</i> corpora.
 </p>

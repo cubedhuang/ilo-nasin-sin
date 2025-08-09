@@ -7,7 +7,8 @@
 	<nav class="mb-8 flex gap-8 text-gray-500">
 		<a href="/" class="hover:text-black">home</a>
 		<a href="/analyze" class="hover:text-black">counter</a>
-		<a href="/visualize" class="hover:text-black">visualize</a>
+		<a href="/charts" class="hover:text-black">charts</a>
+		<a href="/visualize" class="hover:text-black">data</a>
 	</nav>
 
 	{@render children()}

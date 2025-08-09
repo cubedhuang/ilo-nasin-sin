@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Chart from 'chart.js/auto';
 
-	import linku from './linku.json';
+	import linku from '$lib/linku.json';
 	import type { TaggedWordCounts } from './types';
 	import { percent } from './utils';
 	import Toggle from './Toggle.svelte';
