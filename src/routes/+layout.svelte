@@ -9,6 +9,7 @@
 		<a href="/analyze" class="hover:text-black">counter</a>
 		<a href="/charts" class="hover:text-black">charts</a>
 		<a href="/visualize" class="hover:text-black">data</a>
+		<a href="/paper" class="hover:text-black">paper</a>
 		<a
 			href="https://github.com/cubedhuang/ilo-nasin-sin"
 			class="ml-auto hover:text-black">GitHub</a
