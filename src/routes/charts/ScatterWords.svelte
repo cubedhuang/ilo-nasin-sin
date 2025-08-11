@@ -127,7 +127,6 @@
 	const yIncrement = $derived(toIncrement(maxY));
 	const columns = $derived(Math.ceil(maxX / xIncrement));
 	const rows = $derived(Math.ceil(maxY / yIncrement));
-	$inspect({ maxX, maxY, xIncrement, yIncrement, columns, rows });
 </script>
 
 {#each ['x', 'y'] as const as direction}
