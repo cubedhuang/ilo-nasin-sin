@@ -1,9 +1,8 @@
 <script lang="ts">
-	import Chart from 'chart.js/auto';
+	import { flip } from 'svelte/animate';
 
 	import linku from '$lib/linku.json';
 	import type { TaggedWordCounts } from './types';
-	import { percent } from '../visualize/utils';
 	import Toggle from './Toggle.svelte';
 
 	const {
@@ -183,7 +182,7 @@
 				class="relative grid aspect-square w-full"
 				style:grid-template-columns="repeat({columns}, minmax(0, 1fr))"
 			>
-				{#each values as value}
+				{#each values as value (value.label)}
 					<div
 						class="absolute -translate-x-1/2 translate-y-1/2 text-xs
 							{value.highlighted
@@ -191,6 +190,7 @@
 							: 'text-gray-500'}"
 						style:left="{(value.x * 100) / maxX}%"
 						style:bottom="{(value.y * 100) / maxY}%"
+						animate:flip={{ duration: 300 }}
 					>
 						{value.label}
 					</div>
