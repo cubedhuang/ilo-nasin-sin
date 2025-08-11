@@ -111,7 +111,7 @@
 
 	function toIncrement(num: number): number {
 		const val = Math.pow(10, Math.floor(Math.log10(num)));
-		if (num / val < 2) return val / 5;
+		if (val === num) return val / 10;
 		return val;
 	}
 
