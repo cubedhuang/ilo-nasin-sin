@@ -40,7 +40,11 @@
 	});
 	const denominators = ['total', 'c', 'v', 'c-mod'] as const;
 	type Denominator = (typeof denominators)[number];
-	let denominator = $state<Denominator>('c');
+
+	let currentDenoms = $state<{ x: Denominator; y: Denominator }>({
+		x: 'c',
+		y: 'c'
+	});
 
 	const axesNames: Record<Axis, string> = {
 		n: 'Noun',
@@ -57,65 +61,59 @@
 		'c-mod': '(Content - Mod)'
 	};
 
+	function getDenom(word: TaggedWordCounts, d: Denominator): number {
+		const contentCount =
+			word.counts.noun +
+			word.counts.tverb +
+			word.counts.iverb +
+			word.counts.modifier;
+
+		if (d === 'v') {
+			return word.counts.tverb + word.counts.iverb;
+		} else if (d === 'c-mod') {
+			return contentCount - word.counts.modifier;
+		} else if (d === 'total') {
+			return word.total;
+		}
+		return contentCount;
+	}
+
 	const values = $derived.by(() => {
 		const shownWords: TaggedWordCounts[] = [];
 
 		for (const word of Object.values(words)) {
 			if (!goodWords.has(word.word)) continue;
 
-			const contentCount =
-				word.counts.noun +
-				word.counts.tverb +
-				word.counts.iverb +
-				word.counts.modifier;
-
-			if (contentCount === 0) continue;
-
-			let denom = contentCount;
-			if (denominator === 'v') {
-				denom = word.counts.tverb + word.counts.iverb;
-			} else if (denominator === 'c-mod') {
-				denom = contentCount - word.counts.modifier;
-			} else if (denominator === 'total') {
-				denom = word.total;
-			}
-
-			if (denom === 0) continue;
+			if (getDenom(word, currentDenoms.x) === 0) continue;
+			if (getDenom(word, currentDenoms.y) === 0) continue;
 
 			shownWords.push(word);
 		}
 
 		return shownWords.map((word) => {
-			const contentCount =
-				word.counts.noun +
-				word.counts.tverb +
-				word.counts.iverb +
-				word.counts.modifier;
-			let denom = contentCount;
-			if (denominator === 'v') {
-				denom = word.counts.tverb + word.counts.iverb;
-			} else if (denominator === 'c-mod') {
-				denom = contentCount - word.counts.modifier;
-			} else if (denominator === 'total') {
-				denom = word.total;
-			}
 			const value = {
-				n: word.counts.noun / denom,
-				iv: word.counts.iverb / denom,
-				tv: word.counts.tverb / denom,
-				m: word.counts.modifier / denom,
-				v: (word.counts.tverb + word.counts.iverb) / denom,
-				prep: word.counts.preposition / denom
+				n: word.counts.noun,
+				iv: word.counts.iverb,
+				tv: word.counts.tverb,
+				m: word.counts.modifier,
+				v: word.counts.tverb + word.counts.iverb,
+				prep: word.counts.preposition
 			};
 
 			return {
 				label: word.word,
-				x: value[axes.x as 'n'],
-				y: value[axes.y as 'n'],
+				x: value[axes.x as 'n'] / getDenom(word, currentDenoms.x),
+				y: value[axes.y as 'n'] / getDenom(word, currentDenoms.y),
 				highlighted: query.split(' ').includes(word.word)
 			};
 		});
 	});
+
+	function toIncrement(num: number): number {
+		const val = Math.pow(10, Math.floor(Math.log10(num)));
+		if (num / val < 2) return val / 5;
+		return val;
+	}
 
 	const maxX = $derived.by(() => {
 		const x = Math.max(...values.map((value) => value.x));
@@ -125,13 +123,16 @@
 		const y = Math.max(...values.map((value) => value.y));
 		return Math.ceil(y * 10) / 10;
 	});
-	const columns = $derived(maxX * 10);
-	const rows = $derived(maxY * 10);
+	const xIncrement = $derived(toIncrement(maxX));
+	const yIncrement = $derived(toIncrement(maxY));
+	const columns = $derived(Math.ceil(maxX / xIncrement));
+	const rows = $derived(Math.ceil(maxY / yIncrement));
+	$inspect({ maxX, maxY, xIncrement, yIncrement, columns, rows });
 </script>
 
 {#each ['x', 'y'] as const as direction}
 	<p class="mt-2 flex items-baseline gap-1">
-		<span class="w-14 text-sm font-semibold">{direction}-axis</span>
+		<span class="w-16 text-sm font-semibold">{direction}-axis</span>
 		{#each axisOptions as axis}
 			<Toggle
 				active={axes[direction] === axis.value}
@@ -143,27 +144,27 @@
 			</Toggle>
 		{/each}
 	</p>
+	<p class="mt-2 flex items-baseline gap-1">
+		<span class="w-16 text-sm font-semibold">{direction} denom</span>
+		{#each denominators as d}
+			<Toggle
+				active={currentDenoms[direction] === d}
+				onclick={() => {
+					currentDenoms[direction] = d;
+				}}
+			>
+				{d}
+			</Toggle>
+		{/each}
+	</p>
 {/each}
-
-<p class="mt-2 flex items-baseline gap-1">
-	<span class="w-14 text-sm font-semibold">denom</span>
-	{#each denominators as d}
-		<Toggle
-			active={denominator === d}
-			onclick={() => {
-				denominator = d;
-			}}
-		>
-			{d}
-		</Toggle>
-	{/each}
-</p>
 
 <div class="mt-4">
 	<div class="mx-auto text-center font-semibold leading-tight text-gray-800">
 		<h2>
-			{axesNames[axes.x]} and{' '}
-			{axesNames[axes.y]} count over {denominatorNames[denominator]} count
+			{axesNames[axes.x]} / {denominatorNames[currentDenoms.x]}
+			vs
+			{axesNames[axes.y]} / {denominatorNames[currentDenoms.y]}
 		</h2>
 		<p>{dataName}</p>
 	</div>
@@ -174,7 +175,7 @@
 				class="text-center text-sm text-gray-800"
 				style:writing-mode="sideways-lr"
 			>
-				{axesNames[axes.y]} count / {denominatorNames[denominator]} count
+				{axesNames[axes.y]} / {denominatorNames[currentDenoms.y]}
 			</p>
 		</div>
 
@@ -211,7 +212,7 @@
 						class="absolute left-0 -translate-x-full translate-y-1/2 pr-2 text-[10px] text-gray-500"
 						style:bottom="{i * (100 / rows)}%"
 					>
-						{(i * 0.1).toFixed(1)}
+						{(i * yIncrement).toFixed(1)}
 					</div>
 				{/each}
 				{#each { length: columns + 1 } as _, i}
@@ -219,7 +220,7 @@
 						class="absolute top-full -translate-x-1/2 pt-1 text-[10px] text-gray-500"
 						style:left="{i * (100 / columns)}%"
 					>
-						{(i * 0.1).toFixed(1)}
+						{(i * xIncrement).toFixed(1)}
 					</div>
 				{/each}
 			</div>
@@ -231,7 +232,7 @@
 
 		<div class="w-full text-center">
 			<p class="text-center text-sm text-gray-800">
-				{axesNames[axes.x]} count / {denominatorNames[denominator]} count
+				{axesNames[axes.x]} / {denominatorNames[currentDenoms.x]}
 			</p>
 		</div>
 	</div>

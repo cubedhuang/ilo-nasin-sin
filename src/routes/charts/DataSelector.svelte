@@ -36,7 +36,7 @@
 	type Dataset = (typeof datasetOptions)[number]['value'];
 	type Year = (typeof yearOptions)[number];
 
-	let dataset = $state<Dataset>('both');
+	let dataset = $state<Dataset>('discord');
 	let year = $state<Year>('2024');
 
 	function mergeData(
