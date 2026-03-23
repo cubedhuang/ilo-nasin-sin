@@ -15,13 +15,19 @@
 		dataName: string;
 	} = $props();
 
-	const goodWords = new Set(
-		Object.values(linku)
-			.filter(
-				(w) =>
-					w.usage_category === 'core' || w.usage_category === 'common'
-			)
-			.map((w) => w.word)
+	const queries = $derived(query.split(' '));
+
+	const goodWords = $derived(
+		new Set([
+			...Object.values(linku)
+				.filter(
+					(w) =>
+						w.usage_category === 'core' ||
+						w.usage_category === 'common'
+				)
+				.map((w) => w.word),
+			...queries.filter((q) => !!words[q])
+		])
 	);
 
 	const axisOptions = [
@@ -103,7 +109,7 @@
 				label: word.word,
 				x: value[axes.x as 'n'] / getDenom(word, currentDenoms.x),
 				y: value[axes.y as 'n'] / getDenom(word, currentDenoms.y),
-				highlighted: query.split(' ').includes(word.word)
+				highlighted: queries.includes(word.word)
 			};
 		});
 	});
